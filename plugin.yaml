@@ -8,12 +8,16 @@ plugins:
     package_version: '0.0'
 
 node_types:
-  cloudify.nodes.VirtualNetwork:
+
+  cloudify.my_plugin.nodes.VirtualNetwork:
     derived_from: cloudify.nodes.Root
     properties:
       server_ip:
+        default: ''
         type: string
       server_port:
+        default: ''
         type: string
       vNet_name:
-        type: string
+        default: ''
+        type: string 
