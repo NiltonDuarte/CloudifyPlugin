@@ -24,12 +24,3 @@ def start(**kwargs):
 def stop():
   pass
 #create_Vnet('teste')
-
-
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
-   "vNets": [ \ 
-     { \ 
-       "vNetworkName": "vnet2" \ 
-     } \ 
-   ] \ 
- }' 'http://192.168.0.22:8181/overlay/orchestrator/v1/vnet'
