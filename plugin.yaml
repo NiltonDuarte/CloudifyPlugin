@@ -13,13 +13,13 @@ node_types:
     derived_from: cloudify.nodes.Root
     properties:
       server_ip:
-        default: ''
+        default: '1'
         type: string
       server_port:
-        default: ''
+        default: '2'
         type: string
       vNet_name:
-        default: ''
+        default: '3'
         type: string 
     interfaces:
       cloudify.interfaces.lifecycle:
