@@ -8,7 +8,7 @@ import json
 @operation
 def start():
   vNetName = ctx.node.properties["vNet_name"]
-  url = ctx.node.properties["server_ip"]+":"+ctx.node.properties["server_port"]
+  url = "http://"+ctx.node.properties["server_ip"]+":"+ctx.node.properties["server_port"]
   data = {"vNets" : [{"vNetworkName": vNetName}]}
   data_json = json.dumps(data)
   headers = {'Content-type': 'application/json'}
