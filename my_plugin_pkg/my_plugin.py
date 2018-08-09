@@ -6,7 +6,7 @@ import requests
 import json
 
 @operation
-def start():
+def start(**kwargs):
   ctx.logger.info("my_starting")
   vNetName = ctx.node.properties["vNet_name"]
   url = "http://"+ctx.node.properties["server_ip"]+":"+ctx.node.properties["server_port"]+"/overlay/orchestrator/v1/vnet"
