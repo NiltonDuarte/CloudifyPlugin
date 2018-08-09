@@ -1,0 +1,8 @@
+tosca_definitions_version: cloudify_dsl_1_3
+
+plugins:
+  my_plugin:
+    executor: central_deployment_agent
+    source: https://github.com/NiltonDuarte/CloudifyPlugin/archive/master.zip
+    package_name: my_plugin
+    package_version: '0.0'
