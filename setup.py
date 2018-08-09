@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='my-plugin',
+    name='my_plugin',
     version='0.0',
     author='Cloudify',
     packages=['my_plugin_pkg'],
