@@ -16,7 +16,7 @@ def start(**kwargs):
   data_json = json.dumps(data)
   headers = {'Content-type': 'application/json'}
   #url = 'http://httpbin.org/post'
-  response = requests.post(url, data=data_json, headers=headers)
+  response = requests.post(url, data=data_json, headers=headers, auth=('karaf','karaf'))
   ctx.logger.info(response.json())
   #print response
 
@@ -24,3 +24,12 @@ def start(**kwargs):
 def stop():
   pass
 #create_Vnet('teste')
+
+
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
+   "vNets": [ \ 
+     { \ 
+       "vNetworkName": "vnet2" \ 
+     } \ 
+   ] \ 
+ }' 'http://192.168.0.22:8181/overlay/orchestrator/v1/vnet'
