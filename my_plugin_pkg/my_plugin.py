@@ -8,7 +8,7 @@ import json
 @operation
 def start(**kwargs):
   ctx.logger.info("my_starting")
-  vNetName = ctx.node.properties["vNet_name"]
+  vNetName = str(ctx.node.properties["vNet_name"])
   url = "http://"+ctx.node.properties["server_ip"]+":"+str(ctx.node.properties["server_port"])+"/overlay/orchestrator/v1/vnet"
   ctx.logger.info(url)
   data = {"vNets" : [{"vNetworkName": vNetName}]}
