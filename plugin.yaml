@@ -21,3 +21,8 @@ node_types:
       vNet_name:
         default: ''
         type: string 
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        start:
+          implementation: my_plugin_pkg.my_plugin.start
+                 
