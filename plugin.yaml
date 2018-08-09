@@ -6,3 +6,14 @@ plugins:
     source: https://github.com/NiltonDuarte/CloudifyPlugin/archive/master.zip
     package_name: my_plugin
     package_version: '0.0'
+
+node_types:
+  cloudify.nodes.VirtualNetwork:
+  derived_from: cloudify.nodes.Root
+  properties:
+    server_ip:
+      type: string
+    server_port:
+      type: string
+    vNet_name:
+      type: string
