@@ -14,6 +14,7 @@ def start():
   headers = {'Content-type': 'application/json'}
   #url = 'http://httpbin.org/post'
   response = requests.post(url, data=data_json, headers=headers)
+  ctx.logger.info(response.json())
   #print response
 
 @operation
