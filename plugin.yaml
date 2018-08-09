@@ -9,11 +9,11 @@ plugins:
 
 node_types:
   cloudify.nodes.VirtualNetwork:
-  derived_from: cloudify.nodes.Root
-  properties:
-    server_ip:
-      type: string
-    server_port:
-      type: string
-    vNet_name:
-      type: string
+    derived_from: cloudify.nodes.Root
+    properties:
+      server_ip:
+        type: string
+      server_port:
+        type: string
+      vNet_name:
+        type: string
