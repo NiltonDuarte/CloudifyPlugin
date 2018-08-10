@@ -43,9 +43,9 @@ def stop(**kwargs):
   restURL = "http://"+ctx.node.properties["server_ip"]+":"+str(ctx.node.properties["server_port"])+"/overlay/orchestrator/v1"
   url = restURL +"/vnet/network/"+vNetName
   ctx.logger.info(url)
-  headers = {'Content-type': 'application/json'}
+  headers = {'Accept': 'application/json'}
   response = requests.delete(url, headers=headers, auth=('karaf','karaf'))
-  ctx.logger.info(response.json())
+  #ctx.logger.info(response.json())
 
 @operation
 def delete(**kwargs):
