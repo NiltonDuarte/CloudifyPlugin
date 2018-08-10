@@ -47,7 +47,3 @@ def stop(**kwargs):
   response = requests.delete(url, headers=headers, auth=('karaf','karaf'))
   #ctx.logger.info(response.json())
 
-@operation
-def delete(**kwargs):
-  stop(kwargs)
-
