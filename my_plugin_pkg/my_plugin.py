@@ -23,7 +23,13 @@ def start(**kwargs):
   getURL = restURL + "/vnet/network/" + vNetName
   headers = {'Accept': 'text/html'}
   reqCode = -1
+  max_count = 20
+  count = 0
   while not reqCode == 200:
+    if count > max_count:
+      #throw
+      return
+    count += 1
     time.sleep(0.1)
     response = requests.get(getURL, headers=headers, auth=('karaf','karaf'))
     reqCode = response.status_code
