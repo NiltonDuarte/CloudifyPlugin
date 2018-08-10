@@ -24,4 +24,6 @@ node_types:
           implementation: my_plugin.my_plugin_pkg.my_plugin.start
         stop:
           implementation: my_plugin.my_plugin_pkg.my_plugin.stop
+        delete:
+          implementation: my_plugin.my_plugin_pkg.my_plugin.delete
                  

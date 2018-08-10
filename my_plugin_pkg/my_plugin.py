@@ -20,6 +20,7 @@ def start(**kwargs):
   #url = 'http://httpbin.org/post'
   response = requests.post(url, data=data_json, headers=headers, auth=('karaf','karaf'))
   ctx.logger.info(response.json())
+  """
   getURL = restURL + "/vnet/network/" + vNetName
   reqCode = -1
   max_count = 20
@@ -33,8 +34,7 @@ def start(**kwargs):
     response = requests.get(getURL, headers=headers, auth=('karaf','karaf'))
     reqCode = response.status_code
     ctx.logger.info("req_status_code:"+str(reqCode))
-
-  
+  """
 
 @operation
 def stop(**kwargs):
@@ -46,4 +46,8 @@ def stop(**kwargs):
   headers = {'Content-type': 'application/json'}
   response = requests.delete(url, headers=headers, auth=('karaf','karaf'))
   ctx.logger.info(response.json())
+
+@operation
+def delete(**kwargs):
+  stop(kwargs)
 
