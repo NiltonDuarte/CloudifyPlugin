@@ -48,6 +48,6 @@ def stop(**kwargs):
   #ctx.logger.info(response.json())
 
 @operation
-def delete(**kwargs)
+def delete(**kwargs):
   pass
 
