@@ -21,7 +21,6 @@ def start(**kwargs):
   response = requests.post(url, data=data_json, headers=headers, auth=('karaf','karaf'))
   ctx.logger.info(response.json())
   getURL = restURL + "/vnet/network/" + vNetName
-  headers = {'Accept': 'text/html'}
   reqCode = -1
   max_count = 20
   count = 0
@@ -30,7 +29,7 @@ def start(**kwargs):
       #throw
       return
     count += 1
-    time.sleep(0.1)
+    time.sleep(0.2)
     response = requests.get(getURL, headers=headers, auth=('karaf','karaf'))
     reqCode = response.status_code
     ctx.logger.info("req_status_code:"+str(reqCode))
