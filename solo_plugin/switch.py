@@ -8,11 +8,11 @@ from common import *
 def create(**kwargs):
   ctx.logger.info("switch_create")
   
-  datapathId = ctx.node.properties["datapathId"]
-  controllerIp = ctx.node.properties["controllerIp"]
-  controllerPort = ctx.node.properties["controllerPort"]
-  openflowVersion = ctx.node.properties["openflowVersion"]
-  physicalDevice = ctx.node.properties["physicalDevice"]
+  datapathId = str(ctx.node.properties["datapathId"])
+  controllerIp = str(ctx.node.properties["controllerIp"])
+  controllerPort = str(ctx.node.properties["controllerPort"])
+  openflowVersion = str(ctx.node.properties["openflowVersion"])
+  physicalDevice = str(ctx.node.properties["physicalDevice"])
   
   ctx.logger.info("properties: "+str(ctx.node.properties))
   ctx.logger.info("ctx: "+str(dir(ctx)))
@@ -35,7 +35,7 @@ def create(**kwargs):
   if solo_config == None:
     solo_config = ctx.node.properties["solo_config"]
   if vNetworkName == None:
-    vNetworkName = ctx.node.properties["vNetworkName"]
+    vNetworkName = str(ctx.node.properties["vNetworkName"])
 
   data = { "vSwitches": [{
               "vNetworkName": vNetworkName,
