@@ -18,6 +18,7 @@ def create(**kwargs):
   ctx.logger.info(dir(ctx))
   ctx.logger.info(dir(ctx.node))
   ctx.logger.info(dir(ctx.instance))
+  ctx.logger.info(dir(ctx.instance.relationships))
    
 
 @operation
