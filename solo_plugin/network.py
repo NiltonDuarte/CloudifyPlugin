@@ -16,11 +16,8 @@ def create(**kwargs):
   urlPath = "/vnet"
   data = {"vNets" : [{"vNetworkName": vNetName}]}
   ctx.logger.info(data)
-  serverIP = ctx.node.properties["solo_config"]["server_ip"]
-  serverPort = str(ctx.node.properties["solo_config"]["server_port"])
-  username = ctx.node.properties["solo_config"]["username"]
-  password = ctx.node.properties["solo_config"]["password"]
-  response = post(urlPath, data, serverIP, serverPort, username, password)
+  solo_config = ctx.node.properties["solo_config"]
+  response = post(urlPath, data, solo_config)
   ctx.logger.info(response.json())
   """
   getURL = restURL + "/vnet/network/" + vNetName
@@ -43,9 +40,6 @@ def delete(**kwargs):
   ctx.logger.info("my_stop-")
   vNetName = str(ctx.node.properties["vNet_name"])
   urlPath = "/vnet/network/"+vNetName
-  serverIP = ctx.node.properties["solo_config"]["server_ip"]
-  serverPort = str(ctx.node.properties["solo_config"]["server_port"])
-  username = ctx.node.properties["solo_config"]["username"]
-  password = ctx.node.properties["solo_config"]["password"]
-  response = delete(urlPath, serverIP, serverPort, username, password)
+  solo_config = ctx.node.properties["solo_config"]
+  response = delete(urlPath, solo_config)
   ctx.logger.info(response.json())
