@@ -40,7 +40,7 @@ node_types:
     properties: 
       solo_config:
         type: cloudify.solo.types.configuration
-        default: {} 
+        default: '' 
       vNetworkName:
         type: string 
         default: ''        
@@ -50,8 +50,10 @@ node_types:
         type: string
       controllerPort: 
         type: string
+        default: "6633"
       openflowVersion: 
         type: string
+        default: "OF_13"
       physicalDevice: 
         type: string
      
