@@ -23,6 +23,7 @@ def create(**kwargs):
     ctx.logger.info("rel.target: "+str(dir(rel.target)))
     ctx.logger.info("rel.type: "+str(rel.type))
     ctx.logger.info("rel.target.node.properties: "+str(rel.target.node.properties))
+    ctx.logger.info("rel.target.node.type: " + str(rel.target.node.type))
    
 
 @operation
