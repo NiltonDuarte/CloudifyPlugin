@@ -72,9 +72,10 @@ node_types:
         required: false
       vNetworkName:
         type: string 
-        required: false 
+        required: false
       datapathId:
-        type: string        
+        type: string
+        required: false       
       virtualPortNumber:
         type: string        
       physicalPortName:
