@@ -41,3 +41,18 @@ class REST:
   @staticmethod
   def get():
     pass
+  """
+  getURL = restURL + "/vnet/network/" + vNetName
+  reqCode = -1
+  max_count = 20
+  count = 0
+  while not reqCode == 200:
+    if count > max_count:
+      #throw
+      return
+    count += 1
+    time.sleep(0.2)
+    response = requests.get(getURL, headers=headers, auth=('karaf','karaf'))
+    reqCode = response.status_code
+    ctx.logger.info("req_status_code:"+str(reqCode))
+  """
