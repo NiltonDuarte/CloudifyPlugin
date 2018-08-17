@@ -10,6 +10,8 @@ import time
 @operation
 def create(**kwargs):
   ctx.logger.info("my_start-")
+  for key, value in ctx.node.properties.iteritems():
+   ctx.logger.info([key, value])
   vNetName = str(ctx.node.properties["vNet_name"])
   urlPath = "/vnet"
   data = {"vNets" : [{"vNetworkName": vNetName}]}
