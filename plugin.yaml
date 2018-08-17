@@ -4,24 +4,36 @@ plugins:
   my_plugin:
     executor: central_deployment_agent
     source: https://github.com/NiltonDuarte/CloudifyPlugin/archive/master.zip
-    package_name: my_plugin
+    package_name: solo
     package_version: '0.0'
 
-node_types:
-
-  cloudify.my_plugin.nodes.VirtualNetwork:
-    derived_from: cloudify.nodes.Root
+data_types:
+  cloudify.solo.types.configuration:
     properties:
       server_ip:
         type: string
       server_port:
         type: string
+      username:
+        type: string
+      password:
+        type: string
+
+node_types:
+
+  cloudify.solo.nodes.VirtualNetwork:
+    derived_from: cloudify.nodes.Root
+    properties: 
       vNet_name:
         type: string 
+        default: ''
+      solo_config:
+        type: cloudify.solo.types.configuration
+        default: {}      
     interfaces:
       cloudify.interfaces.lifecycle:
-        start:
-          implementation: my_plugin.my_plugin_pkg.my_plugin.start
-        stop:
-          implementation: my_plugin.my_plugin_pkg.my_plugin.stop
+        create:
+          implementation: solo.solo_plugin.network.create
+        delete:
+          implementation: solo.solo_plugin.network.delete
                  
