@@ -40,7 +40,7 @@ node_types:
           implementation: solo.solo_plugin.network.delete
 
   cloudify.solo.nodes.VirtualSwitch:
-    derived_from: cloudify.nodes.Root
+    derived_from: cloudify.nodes.Network
     properties: 
       solo_config:
         type: cloudify.solo.types.configuration
@@ -69,7 +69,7 @@ node_types:
           implementation: solo.solo_plugin.switch.delete          
                  
   cloudify.solo.nodes.VirtualPort:
-    derived_from: cloudify.nodes.Root
+    derived_from: cloudify.nodes.Port
     properties: 
       solo_config:
         type: cloudify.solo.types.configuration
