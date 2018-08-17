@@ -40,10 +40,10 @@ node_types:
     properties: 
       solo_config:
         type: cloudify.solo.types.configuration
-        default: '' 
+        required: false 
       vNetworkName:
-        type: string 
-        default: ''        
+        type: string  
+        required: false       
       datapathId: 
         type: string
       controllerIp: 
@@ -69,10 +69,10 @@ node_types:
     properties: 
       solo_config:
         type: cloudify.solo.types.configuration
-        default: {} 
+        required: false
       vNetworkName:
         type: string 
-        default: ''  
+        required: false 
       datapathId:
         type: string        
       virtualPortNumber:
