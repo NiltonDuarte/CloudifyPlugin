@@ -8,6 +8,8 @@ import time
 @operation
 def create(**kwargs):
   ctx.logger.info("network_create")
+  for rel in ctx.instance.relationships:
+    ctx.logger.info(rel.node.properties)
   solo_config = ctx.node.properties["solo_config"]
   vNetName = str(ctx.node.properties["vNetworkName"])
   urlPath = "/vnet"
