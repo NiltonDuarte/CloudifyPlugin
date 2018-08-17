@@ -14,7 +14,6 @@ def create(**kwargs):
   controllerPort = ctx.node.properties["controllerPort"]
   openflowVersion = ctx.node.properties["openflowVersion"]
   physicalDevice = ctx.node.properties["physicalDevice"]
-  ctx.logger.info(dir(ctx.node))
   vNetworkName = ctx.node.properties["vNetworkName"]
 
 @operation
