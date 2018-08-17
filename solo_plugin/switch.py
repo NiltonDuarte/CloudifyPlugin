@@ -32,6 +32,8 @@ def create(**kwargs):
     if rel.target.node.type == "cloudify.solo.nodes.VirtualNetwork":
       solo_config = rel.target.node.properties["solo_config"]
       vNetworkName = str(rel.target.node.properties["vNetworkName"])
+      ctx.node.properties["vNetworkName"] = vNetworkName
+      ctx.node.properties["solo_config"] = solo_config
   if solo_config == None:
     solo_config = ctx.node.properties["solo_config"]
   if vNetworkName == None:
@@ -54,4 +56,16 @@ def create(**kwargs):
 @operation
 def delete(**kwargs):
   ctx.logger.info("switch_delete")
-  solo_config = ctx.node.properties["solo_config"]
+  datapathId = str(ctx.node.properties["datapathId"])
+  solo_config = None
+  vNetworkName = None
+  for rel in ctx.instance.relationships:
+    if rel.target.node.type == "cloudify.solo.nodes.VirtualNetwork":
+      solo_config = rel.target.node.properties["solo_config"]
+      vNetworkName = str(rel.target.node.properties["vNetworkName"])
+  if solo_config == None:
+    solo_config = ctx.node.properties["solo_config"]
+  if vNetworkName == None:
+    vNetworkName = str(ctx.node.properties["vNetworkName"])
+  urlPath="/vswitch/network/{}/device/{}".format(vNetworkName, datapathId)
+  response = REST.delete(urlPath, solo_config)

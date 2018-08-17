@@ -62,3 +62,29 @@ node_types:
         delete:
           implementation: solo.solo_plugin.switch.delete          
                  
+  cloudify.solo.nodes.VirtualPort:
+    derived_from: cloudify.nodes.Root
+    properties: 
+      solo_config:
+        type: cloudify.solo.types.configuration
+        default: {} 
+      vNetworkName:
+        type: string 
+        default: ''  
+      datapathId:
+        type: string        
+      virtualPortNumber:
+        type: string        
+      physicalPortName:
+        type: string        
+      bindingType:
+        type: string        
+      vlanId:
+        type: string     
+        
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        create:
+          implementation: solo.solo_plugin.port.create
+        delete:
+          implementation: solo.solo_plugin.port.delete            
