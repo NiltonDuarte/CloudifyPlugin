@@ -18,6 +18,7 @@ class SOLO_Config:
     return "http://"+self.server+self.jsonPath
 
 class REST:
+  @staticmethod
   def post(urlPath, data, solo_config):
     config = SOLO_Config(solo_config) 
     url = config.url(urlPath)
@@ -28,6 +29,7 @@ class REST:
     response = requests.post(url, data=data_json, headers=headers, auth=config.auth)
     return response
 
+  @staticmethod
   def delete(urlPath, solo_config):
     config = SOLO_Config(solo_config)
     url = config.url(urlPath)
@@ -35,3 +37,7 @@ class REST:
     headers = {'Accept': 'application/json'}
     response = requests.post(url, headers=headers, auth=config.auth)
     return response  
+
+  @staticmethod
+  def get():
+    pass
