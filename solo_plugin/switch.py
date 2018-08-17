@@ -15,6 +15,8 @@ def create(**kwargs):
   openflowVersion = ctx.node.properties["openflowVersion"]
   physicalDevice = ctx.node.properties["physicalDevice"]
   vNetworkName = ctx.node.properties["vNetworkName"]
+  ctx.logger.info(dir(ctx.node))
+  ctx.logger.info(dir(ctx)) 
 
 @operation
 def delete(**kwargs):
