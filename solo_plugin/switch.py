@@ -15,11 +15,13 @@ def create(**kwargs):
   openflowVersion = ctx.node.properties["openflowVersion"]
   physicalDevice = ctx.node.properties["physicalDevice"]
   vNetworkName = ctx.node.properties["vNetworkName"]
-  ctx.logger.info(dir(ctx))
-  ctx.logger.info(dir(ctx.node))
-  ctx.logger.info(dir(ctx.instance))
+  ctx.logger.info("ctx: "+dir(ctx))
+  ctx.logger.info("ctx.node: "+dir(ctx.node))
+  ctx.logger.info("ctx.instance: "+dir(ctx.instance))
   for rel in ctx.instance.relationships:
-    ctx.logger.info(dir(rel))
+    ctx.logger.info("rel: "+dir(rel))
+    ctx.logger.info("rel.target: "+dir(rel.target))
+    ctx.logger.info("rel.type: "+str(rel.type))
    
 
 @operation
