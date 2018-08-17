@@ -25,11 +25,9 @@ node_types:
     derived_from: cloudify.nodes.Root
     properties: 
       solo_config:
-        type: cloudify.solo.types.configuration
-        default: {}      
+        type: cloudify.solo.types.configuration     
       vNetworkName:
         type: string 
-        default: ''
     interfaces:
       cloudify.interfaces.lifecycle:
         create:
