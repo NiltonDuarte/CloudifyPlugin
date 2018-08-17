@@ -16,10 +16,10 @@ def create(**kwargs):
   urlPath = "/vnet"
   data = {"vNets" : [{"vNetworkName": vNetName}]}
   ctx.logger.info(data)
-  serverIP = ctx.node.properties["server_ip"]
-  serverPort = str(ctx.node.properties["server_port"])
-  username = ctx.node.properties["username"]
-  password = ctx.node.properties["password"]
+  serverIP = ctx.node.properties["solo_config"]["server_ip"]
+  serverPort = str(ctx.node.properties["solo_config"]["server_port"])
+  username = ctx.node.properties["solo_config"]["username"]
+  password = ctx.node.properties["solo_config"]["password"]
   response = post(serverIP, serverPort, urlPath, data, username, password)
   ctx.logger.info(response.json())
   """
