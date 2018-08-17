@@ -29,7 +29,7 @@ node_types:
     derived_from: cloudify.nodes.Root
     properties: 
       solo_config:
-        type: cloudify.solo.types.configuration     
+        type: cloudify.solo.types.configuration
       vNetworkName:
         type: string 
     interfaces:
@@ -47,7 +47,7 @@ node_types:
         required: false 
       vNetworkName:
         type: string  
-        required: false       
+        required: false
       datapathId: 
         type: string
       controllerIp: 
@@ -66,7 +66,7 @@ node_types:
         create:
           implementation: solo.solo_plugin.switch.create
         delete:
-          implementation: solo.solo_plugin.switch.delete          
+          implementation: solo.solo_plugin.switch.delete
                  
   cloudify.solo.nodes.VirtualPort:
     derived_from: cloudify.nodes.Port
@@ -79,19 +79,42 @@ node_types:
         required: false
       datapathId:
         type: string
-        required: false       
+        required: false
       virtualPortNumber:
-        type: string        
+        type: string
       physicalPortName:
-        type: string        
+        type: string
       bindingType:
-        type: string        
+        type: string
       vlanId:
-        type: string     
+        type: string
         
     interfaces:
       cloudify.interfaces.lifecycle:
         create:
           implementation: solo.solo_plugin.port.create
         delete:
-          implementation: solo.solo_plugin.port.delete            
+          implementation: solo.solo_plugin.port.delete
+
+  cloudify.solo.nodes.VirtualLink:
+    derived_from: cloudify.nodes.Port
+    properties: 
+      solo_config:
+        type: cloudify.solo.types.configuration
+        required: false
+      vNetworkName:
+        type: string 
+        required: false
+      datapathIdSrc:
+        type: string
+        required: false
+      virtualPortNumberSrc:
+        type: string
+        required: false
+      datapathIdDst:
+        type: string
+        required: false
+      virtualPortNumberDst:
+        type: string
+        required: false
+                  
