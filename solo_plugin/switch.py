@@ -2,7 +2,7 @@
 from cloudify import ctx
 # import the operation decorator
 from cloudify.decorators import operation
-from solo.common import *
+from common import *
 
 @operation
 def create(**kwargs):
