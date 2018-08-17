@@ -17,7 +17,7 @@ def create(**kwargs):
   data = {"vNets" : [{"vNetworkName": vNetName}]}
   ctx.logger.info(data)
   solo_config = ctx.node.properties["solo_config"]
-  response = post(urlPath, data, solo_config)
+  response = REST.post(urlPath, data, solo_config)
   ctx.logger.info(response.json())
   """
   getURL = restURL + "/vnet/network/" + vNetName
@@ -41,5 +41,5 @@ def delete(**kwargs):
   vNetName = str(ctx.node.properties["vNet_name"])
   urlPath = "/vnet/network/"+vNetName
   solo_config = ctx.node.properties["solo_config"]
-  response = delete(urlPath, solo_config)
+  response = REST.delete(urlPath, solo_config)
   ctx.logger.info(response.json())
