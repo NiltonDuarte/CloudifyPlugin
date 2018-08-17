@@ -35,7 +35,7 @@ class REST:
     url = config.url(urlPath)
     ctx.logger.info(url)
     headers = {'Accept': 'application/json'}
-    response = requests.post(url, headers=headers, auth=config.auth)
+    response = requests.delete(url, headers=headers, auth=config.auth)
     return response  
 
   @staticmethod
