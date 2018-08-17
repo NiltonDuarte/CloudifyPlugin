@@ -39,7 +39,7 @@ def create(**kwargs):
 def delete(**kwargs):
   ctx.logger.info("my_stop-")
   vNetName = str(ctx.node.properties["vNet_name"])
-  urlPath = "/vnet/network/"+vNetName
+  urlPath = "/vnet/network/{}".format(vNetName)
   solo_config = ctx.node.properties["solo_config"]
   response = REST.delete(urlPath, solo_config)
   ctx.logger.info(response.json())

@@ -11,11 +11,11 @@ class SOLO_Config:
     self.username = config["username"]
     self.password = config["password"]
     self.auth = (self.username,self.password)
-    self.server = self.serverIP+":"+self.serverPort
+    self.server = "{}:{}".format(self.serverIP,self.serverPort)
     self.jsonPath = "/overlay/orchestrator/v1"
 
   def url(self, urlPath):
-    return "http://"+self.server+self.jsonPath
+    return "http://{}{}{}".format(self.server,self.jsonPath,urlPath)
 
 class REST:
   @staticmethod
