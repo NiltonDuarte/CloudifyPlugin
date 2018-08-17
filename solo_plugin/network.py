@@ -10,8 +10,8 @@ import time
 @operation
 def create(**kwargs):
   ctx.logger.info("my_start-")
-  for key, value in ctx.node.properties.iteritems():
-   ctx.logger.info([key, value])
+  #for key, value in ctx.node.properties.iteritems():
+  # ctx.logger.info([key, value])
   vNetName = str(ctx.node.properties["vNet_name"])
   urlPath = "/vnet"
   data = {"vNets" : [{"vNetworkName": vNetName}]}
@@ -20,7 +20,7 @@ def create(**kwargs):
   serverPort = str(ctx.node.properties["solo_config"]["server_port"])
   username = ctx.node.properties["solo_config"]["username"]
   password = ctx.node.properties["solo_config"]["password"]
-  response = post(serverIP, serverPort, urlPath, data, username, password)
+  response = post(urlPath, data, serverIP, serverPort, username, password)
   ctx.logger.info(response.json())
   """
   getURL = restURL + "/vnet/network/" + vNetName
@@ -43,8 +43,9 @@ def delete(**kwargs):
   ctx.logger.info("my_stop-")
   vNetName = str(ctx.node.properties["vNet_name"])
   urlPath = "/vnet/network/"+vNetName
-  ctx.logger.info(url)
-  serverIP = ctx.node.properties["server_ip"]
-  serverPort = str(ctx.node.properties["server_port"])
-  response = delete(serverIP, serverPort, username, password)
+  serverIP = ctx.node.properties["solo_config"]["server_ip"]
+  serverPort = str(ctx.node.properties["solo_config"]["server_port"])
+  username = ctx.node.properties["solo_config"]["username"]
+  password = ctx.node.properties["solo_config"]["password"]
+  response = delete(urlPath, serverIP, serverPort, username, password)
   ctx.logger.info(response.json())
