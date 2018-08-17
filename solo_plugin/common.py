@@ -1,3 +1,4 @@
+from cloudify import ctx
 import requests
 import json
 
