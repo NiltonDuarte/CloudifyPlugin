@@ -1,7 +1,7 @@
 tosca_definitions_version: cloudify_dsl_1_3
 
 plugins:
-  solo_plugin:
+  solo:
     executor: central_deployment_agent
     source: https://github.com/NiltonDuarte/CloudifyPlugin/archive/master.zip
     package_name: solo_plugin
