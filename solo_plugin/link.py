@@ -20,9 +20,9 @@ def create(**kwargs):
   point = None
   for rel in ctx.instance.relationships:
     if rel.target.node.type == "cloudify.solo.nodes.VirtualSwitch":
-      if rel.type == "cloudify.solo.relationships.connected_from":
+      if rel.type == "cloudify.solo.connected_from":
         point = "src"
-      if rel.type == "cloudify.solo.relationships.connected_to":
+      if rel.type == "cloudify.solo.connected_to":
         point = "dst"
       solo_config = rel.target.instance.runtime_properties["solo_config"]
       vNetworkName = str(rel.target.instance.runtime_properties["vNetworkName"])
