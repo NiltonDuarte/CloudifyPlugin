@@ -137,8 +137,9 @@ node_types:
 
 
 relationships:
-  cloudify.solo.relationships.connected_from
+
+  cloudify.solo.connected_from
     derived_from: cloudify.relationships.connected_to
 
-  cloudify.solo.relationships.connected_to
+  cloudify.solo.connected_to
     derived_from: cloudify.relationships.connected_to
