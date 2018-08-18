@@ -107,10 +107,8 @@ node_types:
         required: false
       srcVirtualPortNumber:
         type: string
-        required: false
       dstVirtualPortNumber:
         type: string
-        required: false
       srcDatapathId:
         type: string
         required: false
@@ -119,10 +117,8 @@ node_types:
         required: false
       srcPhysicalPort:
         type: string
-        required: false
       dstPhysicalPort:
         type: string
-        required: false
       linkType:
         type: string
       vlanId:
@@ -138,3 +134,11 @@ node_types:
           implementation: solo.solo_plugin.link.create
         delete:
           implementation: solo.solo_plugin.link.delete
+
+
+relationships:
+  cloudify.solo.relationships.connected_from
+    derived_from: cloudify.relationships.connected_to
+
+  cloudify.solo.relationships.connected_to
+    derived_from: cloudify.relationships.connected_to
