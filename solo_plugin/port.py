@@ -40,7 +40,7 @@ def create(**kwargs):
   urlPath = "/vport"
   ctx.logger.info(data)
   response = REST.post(urlPath, data, solo_config)
-  ctx.logger.info(response.json()) 
+  #ctx.logger.info(response.json()) 
 
 @operation
 def delete(**kwargs):

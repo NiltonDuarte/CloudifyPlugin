@@ -16,7 +16,7 @@ def create(**kwargs):
   data = {"vNets" : [{"vNetworkName": vNetName}]}
   ctx.logger.info(data)
   response = REST.post(urlPath, data, solo_config)
-  ctx.logger.info(response.json())
+  #ctx.logger.info(response.json())
 
 
 @operation
