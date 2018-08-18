@@ -23,9 +23,9 @@ def create(**kwargs):
     if rel.target.node.type == "cloudify.solo.nodes.VirtualPort":
       solo_config = rel.target.instance.runtime_properties["solo_config"]
       vNetworkName = str(rel.target.instance.runtime_properties["vNetworkName"])
-      datapathId{dictName[aux]} = str(rel.target.instance.runtime_properties["datapathId"])
-      physicalPort{dictName[aux]} = str(rel.target.instance.runtime_properties["physicalPortName"])
-      virtualPortNumber{dictName[aux]} = str(rel.target.instance.runtime_properties["virtualPortNumber"])
+      datapathId[dictName[aux]] = str(rel.target.instance.runtime_properties["datapathId"])
+      physicalPort[dictName[aux]] = str(rel.target.instance.runtime_properties["physicalPortName"])
+      virtualPortNumber[dictName[aux]] = str(rel.target.instance.runtime_properties["virtualPortNumber"])
       aux += 1
   #TODO if it is defined in bluepint and not in relationship
 
@@ -64,9 +64,9 @@ def delete(**kwargs):
     if rel.target.node.type == "cloudify.solo.nodes.VirtualPort":
       solo_config = rel.target.instance.runtime_properties["solo_config"]
       vNetworkName = str(rel.target.instance.runtime_properties["vNetworkName"])
-      datapathId{dictName[aux]} = str(rel.target.instance.runtime_properties["datapathId"])
-      physicalPort{dictName[aux]} = str(rel.target.instance.runtime_properties["physicalPortName"])
-      virtualPortNumber{dictName[aux]} = str(rel.target.instance.runtime_properties["virtualPortNumber"])
+      datapathId[dictName[aux]] = str(rel.target.instance.runtime_properties["datapathId"])
+      physicalPort[dictName[aux]] = str(rel.target.instance.runtime_properties["physicalPortName"])
+      virtualPortNumber[dictName[aux]] = str(rel.target.instance.runtime_properties["virtualPortNumber"])
       aux += 1
   #TODO if it is defined in bluepint and not in relationship
 
