@@ -18,6 +18,7 @@ def create(**kwargs):
   ctx.logger.info("ctx: "+str(dir(ctx)))
   ctx.logger.info("ctx.node: "+str(dir(ctx.node)))
   ctx.logger.info("ctx.instance: "+str(dir(ctx.instance)))
+  ctx.logger.info("ctx.instance.runtime_properties: "+str(dir(ctx.instance.runtime_properties)))
   for rel in ctx.instance.relationships:
     solo_config = rel.target.node.properties["solo_config"]
     ctx.logger.info("rel: "+str(dir(rel)))
@@ -32,8 +33,8 @@ def create(**kwargs):
     if rel.target.node.type == "cloudify.solo.nodes.VirtualNetwork":
       solo_config = rel.target.node.properties["solo_config"]
       vNetworkName = str(rel.target.node.properties["vNetworkName"])
-      ctx.node.properties["vNetworkName"] = vNetworkName
-      ctx.node.properties["solo_config"] = solo_config
+      ctx.instance.runtime_properties['vNetworkName'] = vNetworkName
+      ctx.instance.runtime_properties['solo_config'] = solo_config
   if solo_config == None:
     solo_config = ctx.node.properties["solo_config"]
   if vNetworkName == None:

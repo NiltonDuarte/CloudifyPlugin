@@ -24,7 +24,8 @@ class REST:
     url = config.url(urlPath)
     ctx.logger.info(url)
     data_json = json.dumps(data)
-    headers = {'Content-type': 'application/json'}
+    headers = {'Content-type': 'application/json',
+               'Accept': 'application/json'}
     #url = 'http://httpbin.org/post'
     response = requests.post(url, data=data_json, headers=headers, auth=config.auth)
     return response
