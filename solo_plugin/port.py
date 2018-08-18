@@ -28,6 +28,13 @@ def create(**kwargs):
     vNetworkName = str(ctx.node.properties["vNetworkName"])
   if datapathId == None:
     datapathId = str(ctx.node.properties["datapathId"])
+
+  ctx.instance.runtime_properties['vNetworkName'] = vNetworkName
+  ctx.instance.runtime_properties['solo_config'] = solo_config
+  ctx.instance.runtime_properties['datapathId'] = datapathId
+  ctx.instance.runtime_properties['virtualPortNumber'] = virtualPortNumber
+  ctx.instance.runtime_properties['physicalPortName'] = physicalPortName
+
   data = { "vPorts": [{
                 "vNetworkName": vNetworkName,
                 "datapathId": datapathId,

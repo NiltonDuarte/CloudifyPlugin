@@ -105,16 +105,36 @@ node_types:
       vNetworkName:
         type: string 
         required: false
-      datapathIdSrc:
+      srcVirtualPortNumber:
         type: string
         required: false
-      virtualPortNumberSrc:
+      dstVirtualPortNumber:
         type: string
         required: false
-      datapathIdDst:
+      srcDatapathId:
         type: string
         required: false
-      virtualPortNumberDst:
+      dstDatapathId:
         type: string
         required: false
+      srcPhysicalPort:
+        type: string
+        required: false
+      dstPhysicalPort:
+        type: string
+        required: false
+      linkType:
+        type: string
+      vlanId:
+        type: string
+        default: ''
+      nsiBandwidth:
+        type: string
+        default: ''
                   
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        create:
+          implementation: solo.solo_plugin.link.create
+        delete:
+          implementation: solo.solo_plugin.link.delete

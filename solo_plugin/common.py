@@ -31,12 +31,13 @@ class REST:
     return response
 
   @staticmethod
-  def delete(urlPath, solo_config):
+  def delete(urlPath, solo_config, data={}):
     config = SOLO_Config(solo_config)
     url = config.url(urlPath)
     ctx.logger.info(url)
+    data_json = json.dumps(data)
     headers = {'Accept': 'application/json'}
-    response = requests.delete(url, headers=headers, auth=config.auth)
+    response = requests.delete(url, data=data_json, headers=headers, auth=config.auth)
     return response  
 
   @staticmethod

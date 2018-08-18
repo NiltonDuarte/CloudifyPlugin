@@ -33,14 +33,15 @@ def create(**kwargs):
     if rel.target.node.type == "cloudify.solo.nodes.VirtualNetwork":
       solo_config = rel.target.node.properties["solo_config"]
       vNetworkName = str(rel.target.node.properties["vNetworkName"])
-      ctx.instance.runtime_properties['vNetworkName'] = vNetworkName
-      ctx.instance.runtime_properties['solo_config'] = solo_config
-      ctx.instance.runtime_properties['datapathId'] = datapathId
+      
   if solo_config == None:
     solo_config = ctx.node.properties["solo_config"]
   if vNetworkName == None:
     vNetworkName = str(ctx.node.properties["vNetworkName"])
 
+  ctx.instance.runtime_properties['vNetworkName'] = vNetworkName
+  ctx.instance.runtime_properties['solo_config'] = solo_config
+  ctx.instance.runtime_properties['datapathId'] = datapathId
   data = { "vSwitches": [{
               "vNetworkName": vNetworkName,
               "datapathId": datapathId,
@@ -59,6 +60,7 @@ def create(**kwargs):
 def delete(**kwargs):
   ctx.logger.info("switch_delete")
   datapathId = str(ctx.node.properties["datapathId"])
+  #maybe I could get this information in runtime_properties
   solo_config = None
   vNetworkName = None
   for rel in ctx.instance.relationships:
