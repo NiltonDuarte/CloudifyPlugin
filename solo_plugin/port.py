@@ -18,9 +18,9 @@ def create(**kwargs):
   datapathId = None
   for rel in ctx.instance.relationships:
     if rel.target.node.type == "cloudify.solo.nodes.VirtualSwitch":
-      solo_config = rel.target.node.properties["solo_config"]
-      vNetworkName = str(rel.target.node.properties["vNetworkName"])
-      datapathId = str(rel.target.node.properties["datapathId"])
+      solo_config = rel.target.instance.runtime_properties["solo_config"]
+      vNetworkName = str(rel.target.instance.runtime_properties["vNetworkName"])
+      datapathId = str(rel.target.instance.runtime_properties["datapathId"])
 
   if solo_config == None:
     solo_config = ctx.node.properties["solo_config"]
