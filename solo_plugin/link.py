@@ -53,8 +53,6 @@ def create(**kwargs):
 def delete(**kwargs):
   ctx.logger.info("link_delete")  
   linkType = str(ctx.node.properties["linkType"])
-  vlanId = str(ctx.node.properties["vlanId"])
-  nsiBandwidth = str(ctx.node.properties["nsiBandwidth"])
   srcVirtualPortNumber = str(ctx.node.properties["srcVirtualPortNumber"])
   dstVirtualPortNumber = str(ctx.node.properties["dstVirtualPortNumber"])
   srcPhysicalPort = str(ctx.node.properties["srcPhysicalPort"])
@@ -85,8 +83,6 @@ def delete(**kwargs):
                 "srcPhysicalPort": srcPhysicalPort,
                 "dstPhysicalPort": dstPhysicalPort,
                 "linkType": linkType,
-                "vlanId": vlanId,
-                "nsiBandwidth": nsiBandwidth
               }]
           }
   urlPath = "/vlink"
