@@ -123,10 +123,10 @@ node_types:
         type: string
       vlanId:
         type: string
-        required: false
+        default: '-1'
       nsiBandwidth:
         type: string
-        required: false
+        default: '-1'
                   
     interfaces:
       cloudify.interfaces.lifecycle:
