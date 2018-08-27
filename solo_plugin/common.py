@@ -1,4 +1,4 @@
-from cloudify import ctx
+from cloudify import ctx # pylint: disable=import-error
 import requests
 import json
 

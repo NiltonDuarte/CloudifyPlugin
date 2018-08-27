@@ -1,7 +1,7 @@
 # import the ctx object
-from cloudify import ctx
+from cloudify import ctx # pylint: disable=import-error
 # import the operation decorator
-from cloudify.decorators import operation
+from cloudify.decorators import operation # pylint: disable=import-error
 from common import *
 import time
 
