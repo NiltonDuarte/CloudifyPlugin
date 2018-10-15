@@ -2,7 +2,7 @@
 from cloudify import ctx # pylint: disable=import-error
 # import the operation decorator
 from cloudify.decorators import operation # pylint: disable=import-error
-from common import *
+from common import REST
 import time
 
 @operation
@@ -15,7 +15,7 @@ def create(**kwargs):
   urlPath = "/vnet"
   data = {"vNets" : [{"vNetworkName": vNetName}]}
   ctx.logger.info(data)
-  response = REST.post(urlPath, data, solo_config)
+  dummy = REST.post(urlPath, data, solo_config)
   #ctx.logger.info(response.json())
 
 
@@ -25,5 +25,5 @@ def delete(**kwargs):
   solo_config = ctx.node.properties["solo_config"]
   vNetName = str(ctx.node.properties["vNetworkName"])
   urlPath = "/vnet/network/{}".format(vNetName)
-  response = REST.delete(urlPath, solo_config)
+  dummy = REST.delete(urlPath, solo_config)
   #ctx.logger.info(response.json())

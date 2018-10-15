@@ -2,7 +2,7 @@
 from cloudify import ctx # pylint: disable=import-error
 # import the operation decorator
 from cloudify.decorators import operation # pylint: disable=import-error
-from common import *
+from common import REST
 
 @operation
 def create(**kwargs):
@@ -40,7 +40,7 @@ def create(**kwargs):
           }
   urlPath = "/vport"
   ctx.logger.info(data)
-  response = REST.post(urlPath, data, solo_config)
+  dummy = REST.post(urlPath, data, solo_config)
   #ctx.logger.info(response.json()) 
 
 @operation
@@ -63,4 +63,4 @@ def delete(**kwargs):
   if datapathId == None:
     datapathId = str(ctx.node.properties["datapathId"])
   urlPath = "/vport/network/{}/device/{}/port/{}".format(vNetworkName, datapathId, virtualPortNumber)
-  response = REST.delete(urlPath, solo_config)
+  dummy = REST.delete(urlPath, solo_config)

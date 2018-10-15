@@ -2,7 +2,7 @@
 from cloudify import ctx # pylint: disable=import-error
 # import the operation decorator
 from cloudify.decorators import operation # pylint: disable=import-error
-from common import *
+from common import REST
 
 
 @operation
